@@ -1,21 +1,28 @@
 <!DOCTYPE html>
 <html lang="en">
+
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Document</title>
 </head>
+
 <body>
-    
+    <button class="button">清空cookie</button>
 </body>
+<script src="./js//jquery.js"></script>
 <script src="./js/easy_js.js"></script>
 <script>
-
     let easyJs = new easy_js()
+    var list = [5, 9, 1, 6, 8]
+    easyJs.cookie.set('data','data-data',3)
 
+    $('document').ready(function(){
+        $('.button').on('click',()=>{
+            easyJs.cookie.del('data')
+        })
+    })
 
-    var list = [5,9,1,6,8]
-
-    console.log(easyJs);
 </script>
+
 </html>

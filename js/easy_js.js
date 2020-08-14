@@ -23,14 +23,15 @@ var easy_js = /** @class */ (function () {
         this.cookie = {
             // 设置cookie
             set: function (name, value, day, domain) {
+                if (day === void 0) { day = 0; }
+                if (domain === void 0) { domain = '/'; }
                 var time = '';
-                if (day && day > 0) {
+                if (day > 0) {
                     time = new Date();
                     time.setTime(time.getTime() + day * 24 * 60 * 60 * 1000);
                     time = 'expires=' + time.toGMTString() + ';';
                 }
-                document.cookie = name + '=' + encodeURIComponent(value) + ';' + time + 'path=' + domain;
-                console.log(document.cookie);
+                document.cookie = (name + '=' + encodeURIComponent(value) + ';' + time + 'path=' + domain);
             },
             //获取cookie
             get: function (name) {
@@ -43,11 +44,30 @@ var easy_js = /** @class */ (function () {
             //删除cookie
             del: function (name, domain) {
                 if (domain === void 0) { domain = '/'; }
-                var value = this.cookie.get(name), exp = new Date();
+                var value = this.get(name), exp = new Date();
                 exp.setTime(exp.getTime() - 1);
                 if (value)
                     document.cookie = name + '=' + value + ';expires=' + exp.toGMTString() + ';path=' + domain;
             }
+        };
+        //操作url
+        this.url = {
+            //获取参数值
+            getParam: function (name, url) {
+                var reg = new RegExp('(^|\\?|&)' + name + '=([^&]*)(&|$)', 'i'), param = null;
+                if (url) {
+                    url = url.split('?')[1];
+                }
+                else {
+                    url = window.location.search.substr(1);
+                }
+                param = url.match(reg);
+                if (param)
+                    return decodeURIComponent(param[2]);
+                else
+                    return null;
+            }
+            //获取全部参数
         };
     }
     easy_js.prototype.test = function () {
