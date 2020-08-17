@@ -66,12 +66,51 @@ var easy_js = /** @class */ (function () {
                     return decodeURIComponent(param[2]);
                 else
                     return null;
-            }
+            },
             //获取全部参数
+            getAllParam: function (url) {
+                var param = [];
+                if (url) {
+                    url = url.split('?')[1];
+                }
+                else {
+                    url = window.location.search.substr(1);
+                }
+                var urlList = url.split('&');
+                for (var i = 0; i < urlList.length; i++) {
+                    var p = urlList[i].split("=");
+                    if (p[0]) {
+                        param[p[0]] = decodeURIComponent(p[1]);
+                    }
+                }
+                return param;
+            },
+            //添加或修改参数
+            addParam: function (object, url) {
+                if (!url) {
+                    url = window.location.href;
+                }
+                var href = url.split('?')[0] || '', search = url.split('?')[1] || '', hash = url.split('#') || '', param = '';
+                if (!object)
+                    return url;
+                if (hash)
+                    search = search.replace("#" + hash, '');
+            }
         };
     }
     easy_js.prototype.test = function () {
         console.log('测试方法');
+    };
+    /**
+    * 遍历对象
+    * @param {object} object 数组
+    * @param {function} callback 回调
+    * @return {void}
+    */
+    easy_js.prototype.traversingObject = function (object, callback) {
+        for (var key in object) {
+            callback(key, object[key]);
+        }
     };
     return easy_js;
 }());

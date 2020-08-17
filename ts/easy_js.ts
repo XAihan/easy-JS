@@ -1,6 +1,7 @@
 
 class easy_js {
 
+
     constructor() {
 
     }
@@ -74,10 +75,59 @@ class easy_js {
             }
             param = url.match(reg);
             if (param) return decodeURIComponent(param[2]); else return null;
-        }
+        },
 
         //获取全部参数
+        getAllParam(url?:string){
+            let param:any = [];
+            if(url){
+                url = url.split('?')[1];
+            }else{
+                url = window.location.search.substr(1);
+            }
+            let urlList = url.split('&');
+            for(let i=0;i<urlList.length;i++){
+                let p = urlList[i].split("=");
+                if(p[0]){
+                    param[p[0]] = decodeURIComponent(p[1]);
+                }
+            }
+            return param;
+        },
 
+        //添加或修改参数
+        addParam(object?:any,url?:string){
+
+            if(!url){
+                url = window.location.href;
+            }
+
+            let href = url.split('?')[0] || '',
+                search = url.split('?')[1] || '',
+                hash = url.split('#') || '',
+                param = '';
+
+            if(!object) return url;
+
+            if(hash) search = search.replace("#" + hash, '');
+
+            
+
+        }
+
+        
+    }
+
+    /**
+    * 遍历对象
+    * @param {object} object 数组
+    * @param {function} callback 回调
+    * @return {void}
+    */
+    traversingObject(object:any[],callback:Function){
+        for(let key in object){
+            callback(key, object[key])
+        }
     }
 
 
