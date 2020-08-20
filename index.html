@@ -12,17 +12,43 @@
             box-sizing: border-box;
             border: 10px black solid;
         }
+
+        .nav{
+            position: fixed;
+            top: 10px;
+            left: 10px;
+        }
+
+        .nav div{
+            width: 100px;
+            height: 100px;
+            display: inline-block;
+            border: solid 1px black;
+            background: red;
+        }
+
+        .active{
+            background: yellow !important;
+        }
     </style>
 </head>
 
 <body>
+    <div class="nav">
+        <div class="active">1</div>
+        <div>2</div>
+        <div>3</div>
+        <div>4</div>
+        <div>5</div>
+        <div>6</div>
+    </div>
     <ul>
-        <li class="i1" ></li>
-        <li class="i2" ></li>
-        <li class="i3" ></li>
-        <li class="i4" ></li>
-        <li class="i5" ></li>
-        <li class="i6" ></li>
+        <li class="i1" >11111111111111111111</li>
+        <li class="i2" >22222222222222222222</li>
+        <li class="i3" >333333333333333333333</li>
+        <li class="i4" >44444444444444444</li>
+        <li class="i5" >555555555555555555</li>
+        <li class="i6" >666666666666</li>
     </ul>
     <button class="button">清空cookie</button>
 </body>
@@ -73,11 +99,24 @@
         '.i6'
     ]
 
-    easyJs.nav.scroll(nav,(i,item)=>{
+    easyJs.event.navScroll('.nav',nav,(i,item)=>{
         console.log(i);
         let color ='#' + Math.floor(Math.random()*100000)
         $(item).css('background',color)
     })
+
+    easyJs.event.navClick('.nav',nav,(doma,domb)=>{
+        $(doma).css('background','blue');
+        $(domb).css('background','yellow')
+    })
+
+    // easyJs.event.scroll('.i3',()=>{
+    //     console.log('超过i3了');
+    // },()=>{
+    //     console.log('没超过i3');
+    // })
+
+    console.log($('.nav').children());
 
 </script>
 

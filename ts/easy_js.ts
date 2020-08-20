@@ -445,8 +445,15 @@ class easy_js {
     }
     
     //导航栏事件
-    static nav:any = {
-        scroll(nav:Array<string>,callback:Function){
+    static event:any = {
+
+        /**
+         * 导航栏滚动事件
+         * @param dom 导航栏父元素
+         * @param nav 列表nav，jquery对象的字符串，如'#section-1' 
+         * @param callback 回调方法，传回目前达到的nav列表的i值和对象
+         */
+        navScroll(dom:string,nav:Array<string>,callback:Function){
             $(window).scroll(()=>{
                 let s = $(document).scrollTop(); //获取滚动高度
                 for(let i=0;i<nav.length;i++){
@@ -454,11 +461,61 @@ class easy_js {
                         top = $(nav[i]).offset().top, 
                         height = $(nav[i]).height();
                     if((top - wh / 2) < s && s < (top + height - wh / 2)){
+                        $($(dom).children()[i]).addClass('active').siblings().removeClass('active');
                         callback(i,nav[i])
                     }
                 }
             })
+        },
+
+        /**
+         * 导航栏点击事件
+         * @param dom 导航栏元素
+         * @param nav 导航栏对应板块
+         * @param callback 回调
+         */
+        navClick(dom:string,nav:Array<string>,callback:Function){
+            $(dom).on('click',(e)=>{
+                let index = $(e.target).index()
+                $('html,body').animate({
+                    scrollTop: $(nav[index]).offset().top
+                }, 500)
+                callback(e.target,nav[index])
+            })
+        },
+
+        /**
+         * 
+         * @param height 滚动要超过的高度 || 要超过的元素
+         * @param doneCallback 超过之后的回调
+         * @param doCallback 没有超过时的回调
+         */
+        scroll(height:any,doneCallback:Function,doCallback?:Function){
+            $(window).scroll(()=>{
+                let s = $(document).scrollTop(); //获取滚动高度
+                let top = (typeof height === 'number')?height: $(height).offset().top
+                if(s>top){
+                    doneCallback()
+                }else{
+                    doCallback()
+                }
+            })
+        },
+
+        /**
+         * 预约事件
+         * @param goalList 奖励目标数量的数组
+         * @param num 预约人数
+         * @param callback 回调，返回达到的成熟（number）
+         */
+        iniResTotal(goalList:Array<number>,num:number,callback:Function){
+            for(let i=0; i<goalList.length; i++){
+                if(num > goalList[i]){
+                    callback(i)
+                }
+            }
         }
+
     }
 
 }
