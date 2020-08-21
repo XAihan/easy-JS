@@ -1,11 +1,13 @@
 "use strict";
+Object.defineProperty(exports, "__esModule", { value: true });
+exports.easy_js = void 0;
 var easy_js = /** @class */ (function () {
     function easy_js() {
-        this.author = 'XAihan';
-        this.version = 'v1.0.0';
+        this.author = "XAihan";
+        this.version = "v1.0.0";
     }
     easy_js.test = function () {
-        console.log('这里是测试方法');
+        console.log("这里是测试方法");
     };
     easy_js.userAgent = window.navigator.userAgent.toLowerCase();
     //判断设备
@@ -15,90 +17,91 @@ var easy_js = /** @class */ (function () {
          * @return {string} 返回平台信息
          */
         platform: function () {
-            if ((/Mobile|Android|webOS|Windows Phone|BlackBerry|SymbianOS|\(i[^;]+;( U;)? CPU.+Mac OS X/i).test(easy_js.userAgent)) {
-                return 'Mobile';
+            if (/Mobile|Android|webOS|Windows Phone|BlackBerry|SymbianOS|\(i[^;]+;( U;)? CPU.+Mac OS X/i.test(easy_js.userAgent)) {
+                return "Mobile";
             }
-            else if ((/Windows|Mac|Linux/i).test(easy_js.userAgent)) {
-                return 'PC';
+            else if (/Windows|Mac|Linux/i.test(easy_js.userAgent)) {
+                return "PC";
             }
-            console.log('未知：' + easy_js.userAgent);
+            console.log("未知：" + easy_js.userAgent);
             return easy_js.userAgent;
         },
         /**
-        * 判断System
-        * @return {string} 返回系统信息
-        */
+         * 判断System
+         * @return {string} 返回系统信息
+         */
         system: function () {
-            if ((/Android/i).test(easy_js.userAgent) || (/Adr/i).test(easy_js.userAgent)) {
-                return 'Android';
+            if (/Android/i.test(easy_js.userAgent) ||
+                /Adr/i.test(easy_js.userAgent)) {
+                return "Android";
             }
-            else if ((/\(i[^;]+;( U;)? CPU.+Mac OS X/i).test(easy_js.userAgent)) {
-                return 'iOS';
+            if (/\(i[^;]+;( U;)? CPU.+Mac OS X/i.test(easy_js.userAgent)) {
+                return "iOS";
             }
-            else if ((/BlackBerry/i).test(easy_js.userAgent)) {
-                return 'BlackBerry';
+            if (/BlackBerry/i.test(easy_js.userAgent)) {
+                return "BlackBerry";
             }
-            else if ((/SymbianOS/i).test(easy_js.userAgent)) {
-                return 'SymbianOS';
+            if (/SymbianOS/i.test(easy_js.userAgent)) {
+                return "SymbianOS";
             }
-            else if ((/Windows/i).test(easy_js.userAgent)) {
-                return 'Windows';
+            if (/Windows/i.test(easy_js.userAgent)) {
+                return "Windows";
             }
-            else if ((/Mac/i).test(easy_js.userAgent)) {
-                return 'Mac';
+            if (/Mac/i.test(easy_js.userAgent)) {
+                return "Mac";
             }
-            else if ((/Linux/i).test(easy_js.userAgent)) {
-                return 'Linux';
+            if (/Linux/i.test(easy_js.userAgent)) {
+                return "Linux";
             }
-            console.log('未知：' + easy_js.userAgent);
+            console.log("未知：" + easy_js.userAgent);
             return easy_js.userAgent;
         },
         /**
-        * 判断浏览器
-        * @return {string} 返回浏览器信息
-        */
+         * 判断浏览器
+         * @return {string} 返回浏览器信息
+         */
         browser: function () {
-            if ((/Huawei/i).test(easy_js.userAgent)) {
-                if ((/MicroMessenger/i).test(easy_js.userAgent)) {
-                    return 'WeChat';
+            if (/Huawei/i.test(easy_js.userAgent)) {
+                if (/MicroMessenger/i.test(easy_js.userAgent)) {
+                    return "WeChat";
                 }
-                else if ((/pixel|statusbar/i).test(easy_js.userAgent)) {
-                    return 'HuaWei';
+                else if (/pixel|statusbar/i.test(easy_js.userAgent)) {
+                    return "HuaWei";
                 }
                 else {
-                    return 'QQBrowser';
+                    return "QQBrowser";
                 }
             }
-            else if ((/MQQBrowser/i).test(easy_js.userAgent)) {
-                return 'QQBrowser';
+            if (/MQQBrowser/i.test(easy_js.userAgent)) {
+                return "QQBrowser";
             }
-            else if ((/QQ/i).test(easy_js.userAgent)) {
-                return 'QQ';
+            if (/QQ/i.test(easy_js.userAgent)) {
+                return "QQ";
             }
-            else if ((/MicroMessenger/i).test(easy_js.userAgent)) {
-                return 'WeChat';
+            if (/MicroMessenger/i.test(easy_js.userAgent)) {
+                return "WeChat";
             }
-            else if ((/WeiBo/).test(easy_js.userAgent)) {
-                return 'WeiBo';
+            if (/WeiBo/.test(easy_js.userAgent)) {
+                return "WeiBo";
             }
-            else if ((/Chrome/i).test(easy_js.userAgent)) {
-                return 'Chrome';
+            if (/Chrome/i.test(easy_js.userAgent)) {
+                return "Chrome";
             }
-            else if ((/Firefox/i).test(easy_js.userAgent)) {
-                return 'Firefox';
+            if (/Firefox/i.test(easy_js.userAgent)) {
+                return "Firefox";
             }
-            else if ((/Safari/i).test(easy_js.userAgent)) {
-                return 'Safari';
+            if (/Safari/i.test(easy_js.userAgent)) {
+                return "Safari";
             }
-            else if ((/Edge/i).test(easy_js.userAgent)) {
-                return 'Edge';
+            if (/Edge/i.test(easy_js.userAgent)) {
+                return "Edge";
             }
-            else if (window.ActiveXObject || 'ActiveXObject' in window) {
-                return 'IE';
+            if (window.ActiveXObject || "ActiveXObject" in window) {
+                return "IE";
             }
-            console.log('未知：' + easy_js.userAgent);
+            console.log("未知：" + easy_js.userAgent);
             return easy_js.userAgent;
-        }
+        },
     };
     //操作cookie
     easy_js.cookie = {
@@ -112,14 +115,21 @@ var easy_js = /** @class */ (function () {
          */
         set: function (name, value, day, domain) {
             if (day === void 0) { day = 0; }
-            if (domain === void 0) { domain = '/'; }
-            var time = '';
+            if (domain === void 0) { domain = "/"; }
+            var time = "";
             if (day > 0) {
                 time = new Date();
                 time.setTime(time.getTime() + day * 24 * 60 * 60 * 1000);
-                time = 'expires=' + time.toGMTString() + ';';
+                time = "expires=" + time.toGMTString() + ";";
             }
-            document.cookie = (name + '=' + encodeURIComponent(value) + ';' + time + 'path=' + domain);
+            document.cookie =
+                name +
+                    "=" +
+                    encodeURIComponent(value) +
+                    ";" +
+                    time +
+                    "path=" +
+                    domain;
         },
         /**
          * 获取Cookie
@@ -127,7 +137,7 @@ var easy_js = /** @class */ (function () {
          * @return {string|null} 返回value|null
          */
         get: function (name) {
-            var reg = new RegExp('(^| )' + name + '=([^;]*)(;|$)'), value = document.cookie.match(reg);
+            var reg = new RegExp("(^| )" + name + "=([^;]*)(;|$)"), value = document.cookie.match(reg);
             if (value)
                 return decodeURIComponent(value[2]);
             else
@@ -140,31 +150,38 @@ var easy_js = /** @class */ (function () {
          * @return {void}
          */
         del: function (name, domain) {
-            if (domain === void 0) { domain = '/'; }
+            if (domain === void 0) { domain = "/"; }
             var value = this.get(name), exp = new Date();
             exp.setTime(exp.getTime() - 1);
             if (value)
-                document.cookie = name + '=' + value + ';expires=' + exp.toGMTString() + ';path=' + domain;
-        }
+                document.cookie =
+                    name +
+                        "=" +
+                        value +
+                        ";expires=" +
+                        exp.toGMTString() +
+                        ";path=" +
+                        domain;
+        },
     };
     //操作rem
     easy_js.rem = {
         /**
-             * 设置标准Rem
-             * @param {number} psdWidth PSD宽度
-             * @param {number} time 间隔时间
-             * @param {boolean} scale 是否缩放
-             * @return {void}
-             */
+         * 设置标准Rem
+         * @param {number} psdWidth PSD宽度
+         * @param {number} time 间隔时间
+         * @param {boolean} scale 是否缩放
+         * @return {void}
+         */
         set: function (psdWidths, times, scales) {
             var psdWidth = psdWidths ? psdWidths : 750, time = times ? times : 300, scale = scales ? scales : false;
             easy_js.base.resizeWindow(function () {
-                var width = document.documentElement.clientWidth, height = document.documentElement.clientHeight, fontSize = width / psdWidth * 100;
+                var width = document.documentElement.clientWidth, height = document.documentElement.clientHeight, fontSize = (width / psdWidth) * 100;
                 if (fontSize > 100)
                     fontSize = 100;
                 if (scale && width / height >= 0.75)
                     fontSize = 85;
-                document.documentElement.style.fontSize = fontSize + 'px';
+                document.documentElement.style.fontSize = fontSize + "px";
                 console.log(fontSize);
             }, time);
         },
@@ -173,8 +190,8 @@ var easy_js = /** @class */ (function () {
          * @return {number} Rem
          */
         get: function () {
-            return parseInt($('html').css('font-size'));
-        }
+            return parseInt($("html").css("font-size"));
+        },
     };
     //操作url
     easy_js.url = {
@@ -185,9 +202,9 @@ var easy_js = /** @class */ (function () {
          * @return {string|null} 返回Url参数的value
          */
         getParam: function (name, url) {
-            var reg = new RegExp('(^|\\?|&)' + name + '=([^&]*)(&|$)', 'i'), param = null;
+            var reg = new RegExp("(^|\\?|&)" + name + "=([^&]*)(&|$)", "i"), param = null;
             if (url) {
-                url = url.split('?')[1];
+                url = url.split("?")[1];
             }
             else {
                 url = window.location.search.substr(1);
@@ -206,12 +223,12 @@ var easy_js = /** @class */ (function () {
         getAllParam: function (url) {
             var param = [];
             if (url) {
-                url = url.split('?')[1];
+                url = url.split("?")[1];
             }
             else {
                 url = window.location.search.substr(1);
             }
-            var urlList = url.split('&');
+            var urlList = url.split("&");
             for (var i = 0; i < urlList.length; i++) {
                 var p = urlList[i].split("=");
                 if (p[0]) {
@@ -230,34 +247,34 @@ var easy_js = /** @class */ (function () {
             if (!url) {
                 url = window.location.href;
             }
-            var href = url.split('?')[0] || '', search = url.split('?')[1] || '', hash = url.split('#')[1] || '', param = '';
+            var href = url.split("?")[0] || "", search = url.split("?")[1] || "", hash = url.split("#")[1] || "", param = "";
             if (!object)
                 return url;
             if (hash)
-                search = search.replace("#" + hash, '');
+                search = search.replace("#" + hash, "");
             easy_js.base.traversingObject(object, function (key, value) {
-                var reg = new RegExp('(^|\\?|&)' + key + '=([^&]*)(&|$)', 'i'), hasParam = '';
+                var reg = new RegExp("(^|\\?|&)" + key + "=([^&]*)(&|$)", "i"), hasParam = "";
                 if (search)
                     hasParam = search.match(reg);
                 if (hasParam)
-                    search = search.replace(hasParam[0], '');
-                if (param !== '')
-                    param += '&';
-                param += String(key) + '=' + String(value);
+                    search = search.replace(hasParam[0], "");
+                if (param !== "")
+                    param += "&";
+                param += String(key) + "=" + String(value);
             });
             if (search) {
-                if (search[0] === '&') {
-                    search = '?' + param + search;
+                if (search[0] === "&") {
+                    search = "?" + param + search;
                 }
                 else {
-                    search = '?' + param + '&' + search;
+                    search = "?" + param + "&" + search;
                 }
             }
             else {
-                search = '?' + param;
+                search = "?" + param;
             }
             if (hash)
-                search += '#' + hash;
+                search += "#" + hash;
             return href + search;
         },
         /**
@@ -271,19 +288,19 @@ var easy_js = /** @class */ (function () {
                 url = window.location.href;
             if (!array)
                 return url;
-            var href = url.split('?')[0] || '', search = url.split('?')[1] || '', hash = url.split('#')[1] || '';
+            var href = url.split("?")[0] || "", search = url.split("?")[1] || "", hash = url.split("#")[1] || "";
             if (hash)
-                search = search.replace('#' + hash, '');
+                search = search.replace("#" + hash, "");
             easy_js.base.traversingObject(array, function (key, value) {
-                var reg = new RegExp('(^|\\?|&)' + value + '=([^&]*)(&|$)', 'i'), hasParam = '';
+                var reg = new RegExp("(^|\\?|&)" + value + "=([^&]*)(&|$)", "i"), hasParam = "";
                 if (search)
                     hasParam = search.match(reg);
                 if (hasParam)
-                    search = search.replace(hasParam[0], '');
+                    search = search.replace(hasParam[0], "");
                 if (search)
-                    search = '?' + search;
+                    search = "?" + search;
                 if (hash)
-                    search += '#' + hash;
+                    search += "#" + hash;
                 return href + search;
             });
         },
@@ -294,7 +311,7 @@ var easy_js = /** @class */ (function () {
         getHash: function () {
             var hash = decodeURIComponent(window.location.hash);
             return hash.substring(1, hash.length);
-        }
+        },
     };
     // 内容计算
     easy_js.math = {
@@ -321,7 +338,7 @@ var easy_js = /** @class */ (function () {
                 num -= item;
             });
             return num;
-        }
+        },
     };
     //基础方法
     easy_js.base = {
@@ -331,15 +348,17 @@ var easy_js = /** @class */ (function () {
          * @param format
          */
         getTime: function (times, format) {
-            var time = times ? new Date(parseInt(times.toString().padEnd(13, '0'))) : new Date(), fmt = format ? format : 'yyyy-MM-dd hh:mm:ss', o = {
-                'M+': (time.getMonth() + 1).toString().padStart(2, '0'),
-                'd+': time.getDate().toString().padStart(2, '0'),
-                'h+': time.getHours().toString().padStart(2, '0'),
-                'm+': time.getMinutes().toString().padStart(2, '0'),
-                's+': time.getSeconds().toString().padStart(2, '0')
+            var time = times
+                ? new Date(parseInt(times.toString().padEnd(13, "0")))
+                : new Date(), fmt = format ? format : "yyyy-MM-dd hh:mm:ss", o = {
+                "M+": (time.getMonth() + 1).toString().padStart(2, "0"),
+                "d+": time.getDate().toString().padStart(2, "0"),
+                "h+": time.getHours().toString().padStart(2, "0"),
+                "m+": time.getMinutes().toString().padStart(2, "0"),
+                "s+": time.getSeconds().toString().padStart(2, "0"),
             };
             if (/(y+)/.test(fmt)) {
-                fmt = fmt.replace(RegExp.$1, (time.getFullYear() + '').substr(4 - RegExp.$1.length));
+                fmt = fmt.replace(RegExp.$1, (time.getFullYear() + "").substr(4 - RegExp.$1.length));
             }
             for (var k in o) {
                 if (new RegExp("(" + k + ")").test(fmt)) {
@@ -369,7 +388,7 @@ var easy_js = /** @class */ (function () {
          * @param callback 回调
          */
         traversingArray: function (array, callback) {
-            for (var i = 0; i = array.length; i++) {
+            for (var i = 0; (i = array.length); i++) {
                 callback(i, array[i]);
             }
         },
@@ -403,11 +422,13 @@ var easy_js = /** @class */ (function () {
             var resizeSetTime = null;
             time = time ? time : 300;
             // document.addEventListener('DOMContentLoaded', callback, false)
-            window.addEventListener('onorientationchange' in window ? 'onorientationchange' : 'resize', function () {
+            window.addEventListener("onorientationchange" in window
+                ? "onorientationchange"
+                : "resize", function () {
                 clearTimeout(resizeSetTime);
                 resizeSetTime = setTimeout(callback, time);
             }, false);
-            window.addEventListener('pageshow', function (e) {
+            window.addEventListener("pageshow", function (e) {
                 if (e.persisted) {
                     clearTimeout(resizeSetTime);
                     resizeSetTime = setTimeout(callback, time);
@@ -419,22 +440,24 @@ var easy_js = /** @class */ (function () {
          */
         transferParam: function () {
             var _this = this;
-            $('a').on('click', function () {
-                var src = '', href = $(_this).attr('href');
+            $("a").on("click", function () {
+                var src = "", href = $(_this).attr("href");
                 //忽略非跳转链接
-                if (href.indexOf('void(0)') !== -1)
+                if (href.indexOf("void(0)") !== -1)
                     return;
                 //忽略非跳转当前域名链接
-                if ((href.indexOf('http://') > -1 || href.indexOf('https://') > -1) && href.indexOf(window.location.hostname) === -1)
+                if ((href.indexOf("http://") > -1 ||
+                    href.indexOf("https://") > -1) &&
+                    href.indexOf(window.location.hostname) === -1)
                     return;
-                href = href.split('#');
+                href = href.split("#");
                 if (href.length > 1)
-                    src = href[0] + window.location.search + '#' + href[1];
+                    src = href[0] + window.location.search + "#" + href[1];
                 else
                     src = href[0] + window.location.search;
-                $(_this).attr('href', src);
+                $(_this).attr("href", src);
             });
-        }
+        },
     };
     //导航栏事件
     easy_js.event = {
@@ -449,8 +472,11 @@ var easy_js = /** @class */ (function () {
                 var s = $(document).scrollTop(); //获取滚动高度
                 for (var i = 0; i < nav.length; i++) {
                     var wh = $(window).height(), top_1 = $(nav[i]).offset().top, height = $(nav[i]).height();
-                    if ((top_1 - wh / 2) < s && s < (top_1 + height - wh / 2)) {
-                        $($(dom).children()[i]).addClass('active').siblings().removeClass('active');
+                    if (top_1 - wh / 2 < s && s < top_1 + height - wh / 2) {
+                        $($(dom).children()[i])
+                            .addClass("active")
+                            .siblings()
+                            .removeClass("active");
                         callback(i, nav[i]);
                     }
                 }
@@ -463,10 +489,10 @@ var easy_js = /** @class */ (function () {
          * @param callback 回调
          */
         navClick: function (dom, nav, callback) {
-            $(dom).on('click', function (e) {
+            $(dom).on("click", function (e) {
                 var index = $(e.target).index();
-                $('html,body').animate({
-                    scrollTop: $(nav[index]).offset().top
+                $("html,body").animate({
+                    scrollTop: $(nav[index]).offset().top,
                 }, 500);
                 callback(e.target, nav[index]);
             });
@@ -480,7 +506,9 @@ var easy_js = /** @class */ (function () {
         scroll: function (height, doneCallback, doCallback) {
             $(window).scroll(function () {
                 var s = $(document).scrollTop(); //获取滚动高度
-                var top = (typeof height === 'number') ? height : $(height).offset().top;
+                var top = typeof height === "number"
+                    ? height
+                    : $(height).offset().top;
                 if (s > top) {
                     doneCallback();
                 }
@@ -501,7 +529,8 @@ var easy_js = /** @class */ (function () {
                     callback(i);
                 }
             }
-        }
+        },
     };
     return easy_js;
 }());
+exports.easy_js = easy_js;
